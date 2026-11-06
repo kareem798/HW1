@@ -26,7 +26,6 @@ public class Assignment01Q03 {
                 System.out.print(" "); // Make sure we don't print a trailing space
         }
         System.out.println();
-        
         System.out.println("The number of odd numbers is: " + numOdd);
     }
 }
