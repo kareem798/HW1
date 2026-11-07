@@ -1,11 +1,47 @@
 import java.util.Arrays;
+import java.util.Dictionary;
 
 public class Assignment01Q04 {
 
     public static int[] shiftArrayCyclic(int[] array, int move, char direction) {
-        // TODO: implement
+    
+    
+    if (direction != 'R' && direction != 'L') {
         return array;
     }
+    if (array.length <= 1 || move == 0) {
+        return array;
+    }
+
+    int len = array.length;
+
+    if (direction == 'L') {
+        move = -move;
+    }
+
+    
+    int effectiveMove = ((move % len) + len) % len;
+
+    
+    if (effectiveMove == 0) {
+        return array;
+    }
+
+    
+    int[] temp = new int[len];
+    for (int i = 0; i < len; i++) {
+        int newIndex = (i + effectiveMove) % len;
+        temp[newIndex] = array[i];
+    }
+
+ 
+    for (int i = 0; i < len; i++) {
+        array[i] = temp[i];
+    }
+
+    return array;
+}
+    
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(
