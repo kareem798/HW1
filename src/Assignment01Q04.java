@@ -18,23 +18,18 @@ public class Assignment01Q04 {
     if (direction == 'L') {
         move = -move;
     }
-
-    
     int effectiveMove = ((move % len) + len) % len;
 
-    
     if (effectiveMove == 0) {
         return array;
     }
 
-    
     int[] temp = new int[len];
     for (int i = 0; i < len; i++) {
         int newIndex = (i + effectiveMove) % len;
         temp[newIndex] = array[i];
     }
 
- 
     for (int i = 0; i < len; i++) {
         array[i] = temp[i];
     }
